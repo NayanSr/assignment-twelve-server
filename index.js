@@ -23,7 +23,12 @@ async function run() {
 
 
 
-
+        //GET Product
+        app.get('/bikes', async (req, res) => {
+            const cursor = bikeCollection.find({});
+            const bikes = await cursor.toArray();
+            res.send(bikes);
+        })
 
         app.post('/users', async (req, res) => {
             const user = req.body;
